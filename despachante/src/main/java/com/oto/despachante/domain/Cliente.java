@@ -3,9 +3,13 @@ package com.oto.despachante.domain;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.oto.despachante.domain.enums.PessoaEnum;
 
 /**
  * @author oto
@@ -24,7 +28,8 @@ public class Cliente implements Serializable {
 	private String cidade;
 	private String tel;
 	private String cel;
-	private Boolean tipo;
+	@Enumerated(EnumType.STRING)
+	private PessoaEnum tipo;
 	private String cpfcnpj;
 	private String rg;
 	private String cnh;
@@ -95,11 +100,11 @@ public class Cliente implements Serializable {
 		this.cel = cel;
 	}
 
-	public Boolean getTipo() {
+	public PessoaEnum getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(Boolean tipo) {
+	public void setTipo(PessoaEnum tipo) {
 		this.tipo = tipo;
 	}
 
