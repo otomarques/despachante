@@ -43,9 +43,11 @@ public class Recibo implements Serializable{
 	private Double valorTotal;
 	private Double desconto;
 	private Double valorSinal;
+	
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "idrecibo")
 	private List<Servico> listaServicos;
+	
 	public Long getId() {
 		return id;
 	}
