@@ -1,10 +1,12 @@
 package com.oto.despachante.domain.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.modelmapper.ModelMapper;
 
 import com.oto.despachante.domain.Cliente;
+import com.oto.despachante.domain.Veiculo;
 import com.oto.despachante.domain.enums.PessoaEnum;
 
 public class ClienteDTO implements Serializable {
@@ -25,6 +27,7 @@ public class ClienteDTO implements Serializable {
 	private String cnh;
 	private String cnhtipo;
 	private String cnhdata;
+	private List<Veiculo> listaVeiculos;
 
 	public static ClienteDTO create(Cliente cliente) {
 		ModelMapper modelMapper = new ModelMapper();
@@ -144,5 +147,15 @@ public class ClienteDTO implements Serializable {
 	public void setCnhdata(String cnhdata) {
 		this.cnhdata = cnhdata;
 	}
+
+	public List<Veiculo> getListaVeiculos() {
+		return listaVeiculos;
+	}
+
+	public void setListaVeiculos(List<Veiculo> listaVeiculos) {
+		this.listaVeiculos = listaVeiculos;
+	}
+	
+	
 
 }

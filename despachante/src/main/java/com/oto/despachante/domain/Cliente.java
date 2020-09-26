@@ -44,7 +44,7 @@ public class Cliente implements Serializable {
 
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "idcliente")
-	private List<Veiculo> veiculo;
+	private List<Veiculo> listaVeiculos;
 
 	public Long getId() {
 		return id;
@@ -158,12 +158,13 @@ public class Cliente implements Serializable {
 		this.cnhdata = cnhdata;
 	}
 
-	public List<Veiculo> getVeiculo() {
-		return veiculo;
+
+	public List<Veiculo> getListaVeiculos() {
+		return listaVeiculos;
 	}
 
-	public void setVeiculo(List<Veiculo> veiculo) {
-		this.veiculo = veiculo;
+	public void setListaVeiculos(List<Veiculo> listaVeiculos) {
+		this.listaVeiculos = listaVeiculos;
 	}
 
 	@Override
