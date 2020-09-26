@@ -40,7 +40,8 @@ public class ClienteController {
 			 ResponseEntity.ok(recibo.get()) :
 			 ResponseEntity.notFound().build();
 	}
-
+	
+	@PostMapping
 	public ResponseEntity InsereCliente(@RequestBody Cliente cliente) {
 		try {
 			ClienteDTO rec = service.insert(cliente);
