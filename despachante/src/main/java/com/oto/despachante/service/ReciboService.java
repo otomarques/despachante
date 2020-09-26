@@ -13,11 +13,15 @@ import com.oto.despachante.domain.Recibo;
 import com.oto.despachante.domain.Usuario;
 import com.oto.despachante.domain.dto.ReciboDTO;
 import com.oto.despachante.repository.ReciboRepository;
+import com.oto.despachante.repository.ServicoRepository;
 
 @Service
 public class ReciboService {
 	@Autowired
 	private ReciboRepository rep;
+	
+	@Autowired
+	private ServicoRepository repServico;
 	
 	public List<ReciboDTO> buscarTodos(){
 		return rep.findAll().stream().map(ReciboDTO::create).collect(Collectors.toList());
@@ -33,6 +37,7 @@ public class ReciboService {
 
 
 	public ReciboDTO insert(Recibo recibo) {
+		rep.flush();
 		return ReciboDTO.create(rep.save(recibo));
 	}
 

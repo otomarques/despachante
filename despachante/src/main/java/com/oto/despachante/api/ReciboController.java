@@ -27,7 +27,7 @@ import com.oto.despachante.service.ReciboService;
 //@CrossOrigin(origins = "http://localhost:4200",maxAge = 3600)
 @CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/financas/api/v1/recibo")
+@RequestMapping("/despachante/api/v1/recibo")
 public class ReciboController {
 	@Autowired
 	private ReciboService service;

@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 @Entity
 public class Servico implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -13,6 +16,7 @@ public class Servico implements Serializable{
 	private Long id;
 	private String descricao;
 	private Double valor;
+	
 	public Long getId() {
 		return id;
 	}
@@ -31,6 +35,7 @@ public class Servico implements Serializable{
 	public void setValor(Double valor) {
 		this.valor = valor;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
