@@ -2,12 +2,16 @@ package com.oto.despachante.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 import com.oto.despachante.domain.enums.PessoaEnum;
 
@@ -19,7 +23,8 @@ import com.oto.despachante.domain.enums.PessoaEnum;
 public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	@Id  @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private String email;
@@ -35,6 +40,9 @@ public class Cliente implements Serializable {
 	private String cnh;
 	private String cnhtipo;
 	private String cnhdata;
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "idcliente")
+	private Veiculo veiculo;
 
 	public Long getId() {
 		return id;
@@ -146,6 +154,14 @@ public class Cliente implements Serializable {
 
 	public void setCnhdata(String cnhdata) {
 		this.cnhdata = cnhdata;
+	}
+
+	public Veiculo getVeiculo() {
+		return veiculo;
+	}
+
+	public void setVeiculo(Veiculo veiculo) {
+		this.veiculo = veiculo;
 	}
 
 	@Override
