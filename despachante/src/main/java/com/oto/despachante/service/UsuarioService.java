@@ -22,33 +22,19 @@ public class UsuarioService {
 	}
 	
 	public UsuarioDTO insert(Usuario usuario) {
-		if(usuario == null) {
-			throw new IllegalArgumentException("Usuário não pode ser nulo.");
-		}
 		return UsuarioDTO.create(rep.save(usuario));
 	}
 	
 	public Optional<UsuarioDTO> getUsuarioById(Long id) {
-		if(id == null) {
-			throw new IllegalArgumentException("ID do usuário não pode ser nulo.");
-		}
 		return rep.findById(id).map(UsuarioDTO::create);
 	}
 
 
 	public List<UsuarioDTO> getUsuarioByLogin(String login) {
-		if(login == null || "".contentEquals(login)) {
-			throw new IllegalArgumentException("Login do usuário não pode ser nulo.");
-		}
 		return rep.findByLogin(login).stream().map(UsuarioDTO::create).collect(Collectors.toList());
 	}
 
 	public UsuarioDTO update(Usuario usuario, Long id) {
-		if(usuario == null) {
-			throw new IllegalArgumentException("Usuário não pode ser nulo.");
-		}else if(id == null) {
-			throw new IllegalArgumentException("ID do usuário não pode ser nulo.");
-		}
 		Assert.notNull(id, "Não foi possível atualizar o registro!");
 		
 		//Busca o Registro no banco de dados
@@ -68,17 +54,11 @@ public class UsuarioService {
 		
 	}
 	public Usuario save(Usuario usuario) {
-		if(usuario == null) {
-			throw new IllegalArgumentException("Usuário não pode ser nulo.");
-		}
 		return rep.save(usuario);
 	}
 
 
 	public boolean delete(Long id) {
-		if(id == null) {
-			throw new IllegalArgumentException("ID do usuário não pode ser nulo.");
-		}
 		if(getUsuarioById(id).isPresent()) {
 			rep.deleteById(id);
 			return true;
