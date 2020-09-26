@@ -1,6 +1,7 @@
 package com.oto.despachante.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -40,9 +41,10 @@ public class Cliente implements Serializable {
 	private String cnh;
 	private String cnhtipo;
 	private String cnhdata;
+
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "idcliente")
-	private Veiculo veiculo;
+	private List<Veiculo> veiculo;
 
 	public Long getId() {
 		return id;
@@ -156,11 +158,11 @@ public class Cliente implements Serializable {
 		this.cnhdata = cnhdata;
 	}
 
-	public Veiculo getVeiculo() {
+	public List<Veiculo> getVeiculo() {
 		return veiculo;
 	}
 
-	public void setVeiculo(Veiculo veiculo) {
+	public void setVeiculo(List<Veiculo> veiculo) {
 		this.veiculo = veiculo;
 	}
 
