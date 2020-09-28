@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.oto.despachante.domain.Servico;
 
 public interface ServicoRepository extends JpaRepository<Servico, Long>{
-	List<Servico> findByDescricao(String descricao);
+	List<Servico> findByDescricaoContains(String descricao);
 }

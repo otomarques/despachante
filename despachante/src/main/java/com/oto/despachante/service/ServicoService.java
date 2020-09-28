@@ -31,7 +31,7 @@ public class ServicoService {
 
 
 	public List<ServicoDTO> getServicoByDescricao(String descricao) {
-		return rep.findByDescricao(descricao).stream().map(ServicoDTO::create).collect(Collectors.toList());
+		return rep.findByDescricaoContains(descricao).stream().map(ServicoDTO::create).collect(Collectors.toList());
 	}
 
 	public ServicoDTO update(Servico servico, Long id) {
