@@ -20,9 +20,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.oto.despachante.domain.Orcamento;
 import com.oto.despachante.domain.OrdemServico;
 import com.oto.despachante.domain.dto.OrdemServicoDTO;
 import com.oto.despachante.service.OrdemServicoService;
+import com.oto.despachante.utils.OrcamentoUtils;
 
 //@CrossOrigin(origins = "http://localhost:4200",maxAge = 3600)
 @CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
@@ -61,7 +63,8 @@ public class OrdemServicoController {
 	}
 
 	@PostMapping
-	public ResponseEntity InsereOrdemServico(@RequestBody OrdemServico ordemServico) {
+	public ResponseEntity InsereOrdemServico(@RequestBody Orcamento orcamento) {
+		OrdemServico ordemServico = OrcamentoUtils.createOS(orcamento);
 		try {
 			OrdemServicoDTO rec = service.insert(ordemServico);
 			URI location = getUri(rec.getId());
