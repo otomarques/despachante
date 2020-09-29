@@ -20,28 +20,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.oto.despachante.domain.Recibo;
-import com.oto.despachante.domain.dto.ReciboDTO;
-import com.oto.despachante.service.ReciboService;
+import com.oto.despachante.domain.OrdemServico;
+import com.oto.despachante.domain.dto.OrdemServicoDTO;
+import com.oto.despachante.service.OrdemServicoService;
 
 //@CrossOrigin(origins = "http://localhost:4200",maxAge = 3600)
 @CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/despachante/api/v1/recibo")
-public class ReciboController {
+@RequestMapping("/despachante/api/v1/ordemServico")
+public class OrdemServicoController {
 	@Autowired
-	private ReciboService service;
+	private OrdemServicoService service;
 
 	@GetMapping()
-	public ResponseEntity<List<ReciboDTO>> getAll() {
-//		return new ResponseEntity<Iterable<Recibo>>(service.getRecibos(),HttpStatus.OK);
+	public ResponseEntity<List<OrdemServicoDTO>> getAll() {
+//		return new ResponseEntity<Iterable<OrdemServico>>(service.getOrdemServicos(),HttpStatus.OK);
 		return ResponseEntity.ok(service.buscarTodos());
 	}
 
 	@GetMapping("/{id}")
 	public ResponseEntity buscarPorID(@PathVariable("id") Long id) throws IllegalArgumentException {
-		Optional<ReciboDTO> recibo = service.getReciboById(id);
-		return recibo.isPresent() ? ResponseEntity.ok(recibo.get()) : ResponseEntity.notFound().build();
+		Optional<OrdemServicoDTO> ordemServico = service.getOrdemServicoById(id);
+		return ordemServico.isPresent() ? ResponseEntity.ok(ordemServico.get()) : ResponseEntity.notFound().build();
 	}
 
 	@GetMapping("/periodo/{periodo}")
@@ -56,14 +56,14 @@ public class ReciboController {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		List<ReciboDTO> recibos = service.getReciboByPeriodo(dataIni, dataFim);
-		return recibos.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(recibos);
+		List<OrdemServicoDTO> ordemServicos = service.getOrdemServicoByPeriodo(dataIni, dataFim);
+		return ordemServicos.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(ordemServicos);
 	}
 
 	@PostMapping
-	public ResponseEntity InsereRecibo(@RequestBody Recibo recibo) {
+	public ResponseEntity InsereOrdemServico(@RequestBody OrdemServico ordemServico) {
 		try {
-			ReciboDTO rec = service.insert(recibo);
+			OrdemServicoDTO rec = service.insert(ordemServico);
 			URI location = getUri(rec.getId());
 			return ResponseEntity.created(location).build();
 		} catch (Exception e) {
@@ -76,8 +76,8 @@ public class ReciboController {
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity AlteraRecibo(@PathVariable("id") Long id, @RequestBody Recibo recibo) {
-		ReciboDTO rec = service.update(recibo, id);
+	public ResponseEntity AlteraOrdemServico(@PathVariable("id") Long id, @RequestBody OrdemServico ordemServico) {
+		OrdemServicoDTO rec = service.update(ordemServico, id);
 		return rec != null ? ResponseEntity.ok(rec) : ResponseEntity.notFound().build();
 	}
 

@@ -1,33 +1,49 @@
-package com.oto.despachante.domain.dto;
+package com.oto.despachante.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import org.modelmapper.ModelMapper;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-import com.oto.despachante.domain.Cliente;
-import com.oto.despachante.domain.Recibo;
-import com.oto.despachante.domain.Servico;
-import com.oto.despachante.domain.Usuario;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class ReciboDTO {
-
+@Entity
+public class Orcamento implements Serializable{
+	private static final long serialVersionUID = 1L;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@ManyToOne
+	@JoinColumn(name = "idcliente")
 	private Cliente cliente;
+
+	@ManyToOne
+	@JoinColumn(name = "idusuario")
 	private Usuario usuario;
+	@ManyToOne
+	@JoinColumn(name = "iddespachante")
 	private Usuario despachante;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", locale = "pt-BR", timezone = "Brazil/East")
+	@Temporal(TemporalType.DATE)
 	private Date dataRegistro;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", locale = "pt-BR", timezone = "Brazil/East")
+	@Temporal(TemporalType.DATE)
 	private Date dataEmissao;
 	private String numProcesso;
 	private Double valorTotal;
 	private Double desconto;
 	private Double valorSinal;
-	private List<Servico> listaServicos;
 	
-	public static ReciboDTO create(Recibo recibo) {
-		ModelMapper mp = new ModelMapper();
-		return mp.map(recibo, ReciboDTO.class);
-	}
+	@ManyToMany
+	private List<Servico> listaServicos;
 	
 	public Long getId() {
 		return id;
@@ -95,4 +111,30 @@ public class ReciboDTO {
 	public void setListaServicos(List<Servico> listaServicos) {
 		this.listaServicos = listaServicos;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Orcamento other = (Orcamento) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
+	
+	
+
 }
