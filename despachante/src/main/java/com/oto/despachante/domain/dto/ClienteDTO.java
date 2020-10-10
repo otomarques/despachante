@@ -1,6 +1,7 @@
 package com.oto.despachante.domain.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
@@ -26,7 +27,7 @@ public class ClienteDTO implements Serializable {
 	private String rg;
 	private String cnh;
 	private String cnhtipo;
-	private String cnhdata;
+	private Date cnhdata;
 	private List<Veiculo> listaVeiculos;
 
 	public static ClienteDTO create(Cliente cliente) {
@@ -140,11 +141,11 @@ public class ClienteDTO implements Serializable {
 		this.cnhtipo = cnhtipo;
 	}
 
-	public String getCnhdata() {
+	public Date getCnhdata() {
 		return cnhdata;
 	}
 
-	public void setCnhdata(String cnhdata) {
+	public void setCnhdata(Date cnhdata) {
 		this.cnhdata = cnhdata;
 	}
 

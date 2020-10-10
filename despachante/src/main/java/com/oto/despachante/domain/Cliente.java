@@ -1,6 +1,7 @@
 package com.oto.despachante.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,7 +14,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.oto.despachante.domain.enums.PessoaEnum;
 
 /**
@@ -40,7 +44,9 @@ public class Cliente implements Serializable {
 	private String rg;
 	private String cnh;
 	private String cnhtipo;
-	private String cnhdata;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", locale = "pt-BR", timezone = "Brazil/East")
+	@Temporal(TemporalType.DATE)
+	private Date cnhdata;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "idcliente")
@@ -150,14 +156,13 @@ public class Cliente implements Serializable {
 		this.cnhtipo = cnhtipo;
 	}
 
-	public String getCnhdata() {
+	public Date getCnhdata() {
 		return cnhdata;
 	}
 
-	public void setCnhdata(String cnhdata) {
+	public void setCnhdata(Date cnhdata) {
 		this.cnhdata = cnhdata;
 	}
-
 
 	public List<Veiculo> getListaVeiculos() {
 		return listaVeiculos;
