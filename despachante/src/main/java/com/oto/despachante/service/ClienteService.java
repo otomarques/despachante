@@ -11,18 +11,18 @@ import org.springframework.util.Assert;
 import com.oto.despachante.domain.Cliente;
 import com.oto.despachante.domain.dto.ClienteDTO;
 import com.oto.despachante.repository.ClienteRepository;
-import com.oto.despachante.repository.VeiculoRepository;
 
 @Service
 public class ClienteService {
 	@Autowired
 	private ClienteRepository rep;
 	
-	@Autowired
-	private VeiculoRepository veiculoRep;
-
 	public List<ClienteDTO> buscarTodos() {
 		return rep.findAll().stream().map(ClienteDTO::create).collect(Collectors.toList());
+	}
+	
+	public List<ClienteDTO> buscarPorNome(String nome){
+		return rep.findByNomeIgnoreCaseContaining(nome).stream().map(ClienteDTO::create).collect(Collectors.toList());
 	}
 
 	public ClienteDTO insert(Cliente cliente) {

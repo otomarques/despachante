@@ -42,6 +42,15 @@ public class ClienteController {
 			 ResponseEntity.ok(recibo.get()) :
 			 ResponseEntity.notFound().build();
 	}
+	@GetMapping("/nome/{nome}")
+	public ResponseEntity buscarPorNome(@PathVariable("nome") String nome) throws IllegalArgumentException{
+		List<ClienteDTO> recibo;
+		if(nome == null) {
+			recibo = service.buscarTodos();
+		}
+		recibo =  service.buscarPorNome(nome);
+		return ResponseEntity.ok(recibo);
+	}
 	
 	@PostMapping
 	public ResponseEntity InsereCliente(@RequestBody Cliente cliente) {
