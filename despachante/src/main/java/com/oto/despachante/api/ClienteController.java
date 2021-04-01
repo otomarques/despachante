@@ -37,19 +37,17 @@ public class ClienteController {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity buscarPorID(@PathVariable("id") Long id) throws IllegalArgumentException{
-		Optional<ClienteDTO> recibo =  service.getClienteById(id);
-		return recibo.isPresent() ?
-			 ResponseEntity.ok(recibo.get()) :
-			 ResponseEntity.notFound().build();
+		Optional<ClienteDTO> cliente =  service.getClienteById(id);
+		return cliente.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
 	}
 	@GetMapping("/nome/{nome}")
 	public ResponseEntity buscarPorNome(@PathVariable("nome") String nome) throws IllegalArgumentException{
-		List<ClienteDTO> recibo;
+		List<ClienteDTO> cliente;
 		if(nome == null) {
-			recibo = service.buscarTodos();
+			cliente = service.buscarTodos();
 		}
-		recibo =  service.buscarPorNome(nome);
-		return ResponseEntity.ok(recibo);
+		cliente =  service.buscarPorNome(nome);
+		return ResponseEntity.ok(cliente);
 	}
 	
 	@PostMapping
@@ -76,8 +74,8 @@ public class ClienteController {
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity delete(@PathVariable("id") Long id) {
-		return service.delete(id) ? ResponseEntity.ok().build() :
-			ResponseEntity.notFound().build();
+		service.delete(id); 
+		return ResponseEntity.ok().build();
 	}
 
 }

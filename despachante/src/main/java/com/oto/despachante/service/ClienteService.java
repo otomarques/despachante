@@ -16,12 +16,12 @@ import com.oto.despachante.repository.ClienteRepository;
 public class ClienteService {
 	@Autowired
 	private ClienteRepository rep;
-	
+
 	public List<ClienteDTO> buscarTodos() {
 		return rep.findAll().stream().map(ClienteDTO::create).collect(Collectors.toList());
 	}
-	
-	public List<ClienteDTO> buscarPorNome(String nome){
+
+	public List<ClienteDTO> buscarPorNome(String nome) {
 		return rep.findByNomeIgnoreCaseContaining(nome).stream().map(ClienteDTO::create).collect(Collectors.toList());
 	}
 
@@ -68,12 +68,8 @@ public class ClienteService {
 		return rep.save(cliente);
 	}
 
-	public boolean delete(Long id) {
-		if (getClienteById(id).isPresent()) {
-			rep.deleteById(id);
-			return true;
-		}
-		return false;
+	public void delete(Long id) {
+		rep.deleteById(id);
 	}
 
 }

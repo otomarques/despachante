@@ -33,19 +33,17 @@ public class UsuarioController {
 //		return new ResponseEntity<Iterable<Recibo>>(service.getRecibos(),HttpStatus.OK);
 		return ResponseEntity.ok(service.buscarTodos());
 	}
-	
+
 	@GetMapping("/{id}")
-	public ResponseEntity buscarPorID(@PathVariable("id") Long id) throws IllegalArgumentException{
-		Optional<UsuarioDTO> recibo =  service.getUsuarioById(id);
-		return recibo.isPresent() ?
-			 ResponseEntity.ok(recibo.get()) :
-			 ResponseEntity.notFound().build();
+	public ResponseEntity buscarPorID(@PathVariable("id") Long id) throws IllegalArgumentException {
+		Optional<UsuarioDTO> recibo = service.getUsuarioById(id);
+		return recibo.isPresent() ? ResponseEntity.ok(recibo.get()) : ResponseEntity.notFound().build();
 	}
+
 	@GetMapping("/login/{login}")
-	public ResponseEntity buscarPorLogin(@PathVariable("login") String login){
-		List<UsuarioDTO> usuarios =  service.getUsuarioByLogin(login);
-		return usuarios.isEmpty() ? ResponseEntity.noContent().build() :
-			ResponseEntity.ok(usuarios);
+	public ResponseEntity buscarPorLogin(@PathVariable("login") String login) {
+		List<UsuarioDTO> usuarios = service.getUsuarioByLogin(login);
+		return usuarios.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(usuarios);
 	}
 
 	@PostMapping
@@ -62,18 +60,17 @@ public class UsuarioController {
 	private URI getUri(Long id) {
 		return ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(id).toUri();
 	}
-	
+
 	@PutMapping("/{id}")
 	public ResponseEntity AlteraUsuario(@PathVariable("id") Long id, @RequestBody Usuario usuario) {
 		UsuarioDTO rec = service.update(usuario, id);
-		return rec != null ? ResponseEntity.ok(rec) :
-			ResponseEntity.notFound().build();
+		return rec != null ? ResponseEntity.ok(rec) : ResponseEntity.notFound().build();
 	}
-	
+
 	@DeleteMapping("/{id}")
 	public ResponseEntity delete(@PathVariable("id") Long id) {
-		return service.delete(id) ? ResponseEntity.ok().build() :
-			ResponseEntity.notFound().build();
+		service.delete(id);
+		return ResponseEntity.ok().build();
 	}
 
 }

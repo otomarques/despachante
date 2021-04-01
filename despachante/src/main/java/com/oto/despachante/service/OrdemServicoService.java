@@ -17,31 +17,30 @@ import com.oto.despachante.repository.OrdemServicoRepository;
 public class OrdemServicoService {
 	@Autowired
 	private OrdemServicoRepository rep;
-	
-	public List<OrdemServicoDTO> buscarTodos(){
+
+	public List<OrdemServicoDTO> buscarTodos() {
 		return rep.findAll().stream().map(OrdemServicoDTO::create).collect(Collectors.toList());
 	}
-	
+
 	public Optional<OrdemServicoDTO> getOrdemServicoById(Long id) {
 		return rep.findById(id).map(OrdemServicoDTO::create);
 	}
-	
-	public List<OrdemServicoDTO> getOrdemServicoByPeriodo(Date dataIni, Date dataFim){
-		return rep.getAllBetweenDates(dataIni, dataFim).stream().map(OrdemServicoDTO::create).collect(Collectors.toList());
-	}
 
+	public List<OrdemServicoDTO> getOrdemServicoByPeriodo(Date dataIni, Date dataFim) {
+		return rep.getAllBetweenDates(dataIni, dataFim).stream().map(OrdemServicoDTO::create)
+				.collect(Collectors.toList());
+	}
 
 	public OrdemServicoDTO insert(OrdemServico orcamento) {
 		rep.flush();
 		return OrdemServicoDTO.create(rep.save(orcamento));
 	}
 
-
 	public OrdemServicoDTO update(OrdemServico orcamento, Long id) {
 		Assert.notNull(id, "Não foi possível atualizar o registro!");
-		
+
 		Optional<OrdemServico> optional = rep.findById(id);
-		if(optional.isPresent()) {
+		if (optional.isPresent()) {
 			OrdemServico db = optional.get();
 			db.setDataRegistro(orcamento.getDataRegistro());
 			db.setCliente(orcamento.getCliente());
@@ -54,28 +53,18 @@ public class OrdemServicoService {
 			db.setValorSinal(orcamento.getValorSinal());
 			db.setValorTotal(orcamento.getValorTotal());
 			rep.save(db);
-			
+
 			return OrdemServicoDTO.create(db);
 		}
-			return null;
-		
+		return null;
+
 	}
+
 	public OrdemServico save(OrdemServico orcamento) {
-		if(orcamento == null) {
-			throw new IllegalArgumentException("Ordem de Servico não pode ser nulo.");
-		}
 		return rep.save(orcamento);
 	}
 
-
-	public boolean delete(Long id) {
-		if(id == null) {
-			throw new IllegalArgumentException("ID não pode ser nulo.");
-		}
-		if(getOrdemServicoById(id).isPresent()) {
-			rep.deleteById(id);
-			return true;
-		}
-		return false;
+	public void delete(Long id) {
+		rep.deleteById(id);
 	}
 }

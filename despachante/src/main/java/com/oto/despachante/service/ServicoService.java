@@ -20,15 +20,14 @@ public class ServicoService {
 	public List<ServicoDTO> buscarTodos() {
 		return rep.findAll().stream().map(ServicoDTO::create).collect(Collectors.toList());
 	}
-	
+
 	public ServicoDTO insert(Servico servico) {
 		return ServicoDTO.create(rep.save(servico));
 	}
-	
+
 	public Optional<ServicoDTO> getServicoById(Long id) {
 		return rep.findById(id).map(ServicoDTO::create);
 	}
-
 
 	public List<ServicoDTO> getServicoByDescricao(String descricao) {
 		return rep.findByDescricaoContains(descricao).stream().map(ServicoDTO::create).collect(Collectors.toList());
@@ -36,32 +35,28 @@ public class ServicoService {
 
 	public ServicoDTO update(Servico servico, Long id) {
 		Assert.notNull(id, "Não foi possível atualizar o registro!");
-		
-		//Busca o Registro no banco de dados
+
+		// Busca o Registro no banco de dados
 		Optional<Servico> optional = rep.findById(id);
-		if(optional.isPresent()) {
+		if (optional.isPresent()) {
 			Servico db = optional.get();
-			//Copiar as propriedades
+			// Copiar as propriedades
 			db.setDescricao(servico.getDescricao());
 			db.setValor(servico.getValor());
-			//Atualiza o Servico
+			// Atualiza o Servico
 			rep.save(db);
-			
+
 			return ServicoDTO.create(db);
 		}
-			return null;
-		
+		return null;
+
 	}
+
 	public Servico save(Servico servico) {
 		return rep.save(servico);
 	}
 
-
-	public boolean delete(Long id) {
-		if(getServicoById(id).isPresent()) {
-			rep.deleteById(id);
-			return true;
-		}
-		return false;
+	public void delete(Long id) {
+		rep.deleteById(id);
 	}
 }
