@@ -21,7 +21,7 @@ import com.oto.despachante.domain.Cliente;
 import com.oto.despachante.domain.dto.ClienteDTO;
 import com.oto.despachante.service.ClienteService;
 
-//@CrossOrigin(origins = "", allowedHeaders = "", maxAge = 3600)
+//@CrossOrigin(origins = "", allowedHeaders = "", maxAge = 3600) 
 @CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/despachante/api/v1/cliente")
