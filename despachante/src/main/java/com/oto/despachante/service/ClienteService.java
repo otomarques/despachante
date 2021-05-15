@@ -32,7 +32,9 @@ public class ClienteService {
 	public Optional<ClienteDTO> getClienteById(Long id) {
 		return rep.findById(id).map(ClienteDTO::create);
 	}
-
+	public Optional<ClienteDTO> getClienteByPlacaVeiculo(String placa) {
+		return rep.findByPlacaVeiculo(placa).map(ClienteDTO::create);
+	}
 	public ClienteDTO update(Cliente cliente, Long id) {
 		Assert.notNull(id, "Não foi possível atualizar o registro!");
 
