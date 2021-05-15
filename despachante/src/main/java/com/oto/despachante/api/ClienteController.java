@@ -38,11 +38,8 @@ public class ClienteController {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity buscarPorID(@PathVariable("id") Long id) throws IllegalArgumentException{
-		return service.getClienteById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
-	}
-	@GetMapping("/placa/{placa}")
-	public ResponseEntity buscarPorID(@PathVariable("placa") String placa) throws IllegalArgumentException{
-		return service.getClienteByPlacaVeiculo(placa).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+		Optional<ClienteDTO> cliente =  service.getClienteById(id);
+		return cliente.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
 	}
 	@GetMapping("/nome/{nome}")
 	public ResponseEntity buscarPorNome(@PathVariable("nome") String nome) throws IllegalArgumentException{
