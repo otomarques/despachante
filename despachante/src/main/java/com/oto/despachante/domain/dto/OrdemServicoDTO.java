@@ -9,6 +9,7 @@ import com.oto.despachante.domain.Cliente;
 import com.oto.despachante.domain.OrdemServico;
 import com.oto.despachante.domain.Servico;
 import com.oto.despachante.domain.Usuario;
+import com.oto.despachante.utils.ValorExtensoUtils;
 
 public class OrdemServicoDTO {
 
@@ -23,10 +24,13 @@ public class OrdemServicoDTO {
 	private Double desconto;
 	private Double valorSinal;
 	private List<Servico> listaServicos;
+	private String valorExtenso;
 	
 	public static OrdemServicoDTO create(OrdemServico os) {
 		ModelMapper mp = new ModelMapper();
-		return mp.map(os, OrdemServicoDTO.class);
+		OrdemServicoDTO osDto =  mp.map(os, OrdemServicoDTO.class);
+		osDto.setValorExtenso(ValorExtensoUtils.extenso(osDto.getValorTotal()));
+		return osDto;
 	}
 	
 	public Long getId() {
@@ -95,4 +99,13 @@ public class OrdemServicoDTO {
 	public void setListaServicos(List<Servico> listaServicos) {
 		this.listaServicos = listaServicos;
 	}
+
+	public String getValorExtenso() {
+		return valorExtenso;
+	}
+
+	public void setValorExtenso(String valorExtenso) {
+		this.valorExtenso = valorExtenso;
+	}
+	
 }

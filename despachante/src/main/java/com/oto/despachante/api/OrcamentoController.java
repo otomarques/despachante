@@ -25,7 +25,7 @@ import com.oto.despachante.domain.dto.OrcamentoDTO;
 import com.oto.despachante.service.OrcamentoService;
 
 //@CrossOrigin(origins = "http://localhost:4200",maxAge = 3600)
-@CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
+//@CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/despachante/api/v1/orcamento")
 public class OrcamentoController {

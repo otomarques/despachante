@@ -23,7 +23,7 @@ import com.oto.despachante.domain.dto.ClienteDTO;
 import com.oto.despachante.service.ClienteService;
 
 //@CrossOrigin(origins = "", allowedHeaders = "", maxAge = 3600)
-@CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
+//@CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/despachante/api/v1/cliente")
 public class ClienteController {
@@ -55,6 +55,7 @@ public class ClienteController {
 	}
 	
 	@PostMapping
+//	@Secured({"ROLE_ADMIN"})
 	public ResponseEntity InsereCliente(@RequestBody Cliente cliente) {
 		try {
 			ClienteDTO rec = service.insert(cliente);
