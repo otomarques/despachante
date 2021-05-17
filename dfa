@@ -1,0 +1,262 @@
+[33mcommit add0da32766daa632f6494ab4864d9f2471a4443[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m, [m[1;31morigin/dev[m[33m)[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Sat May 15 14:31:17 2021 -0300
+
+    Revert "busca de cliente por placa do veículo"
+    
+    This reverts commit f1f195f10c954be245a6c52344236e064ffb34d1.
+
+[33mcommit 206f0066a2bd3aca616f735edaf41e1625b3df39[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Sat May 15 14:17:28 2021 -0300
+
+    implementando securty (acho)
+
+[33mcommit 004d9c7df6c29c12cdacaf61a80f1eefea4c8451[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Mon Apr 5 18:36:18 2021 -0300
+
+    Implementando Security
+
+[33mcommit f1f195f10c954be245a6c52344236e064ffb34d1[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Thu Apr 1 15:55:15 2021 -0300
+
+    busca de cliente por placa do veículo
+
+[33mcommit a222bc459dbfa32094996c96e398943833de4632[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Wed Mar 31 22:31:02 2021 -0300
+
+    teste
+
+[33mcommit ad45dfaf615cddc896f94b1216ecedf3bfbc7a6e[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Wed Mar 31 22:24:09 2021 -0300
+
+    teste
+
+[33mcommit 06c3c1e3a1d7b1b8fb995e3a5f79ea63374f3c01[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Wed Mar 31 22:16:48 2021 -0300
+
+    Implementando Exception Handler
+
+[33mcommit 135f24aed9a4a53fb2b4b6986d533f7d487e1029[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Tue Mar 30 12:12:59 2021 -0300
+
+    Criando API Cliente
+
+[33mcommit f7eaa24e0fa5fe9ad75d3485019c950c5c38532a[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Sat Oct 10 12:18:20 2020 -0300
+
+    Ajustando cadastro de Cliente
+
+[33mcommit 1d3b77e9c0d9e04726679d1f4fb3e62650547ee2[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Tue Sep 29 11:26:49 2020 -0300
+
+    Alterando inserção de Ordem de Serviço
+
+[33mcommit b087b265cc6ff41de0e7e48842fcf797092d4844[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Tue Sep 29 10:07:17 2020 -0300
+
+    removendo Recibo e criando ORçamento e Ordem de Serviço
+
+[33mcommit 75beaa7357cce46aadf8ab39446f1f9c75d3c72a[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Mon Sep 28 00:49:57 2020 -0300
+
+    Corrigindo método da classe ServicoRepository e ServicoService
+
+[33mcommit 8f8b83146374f37eaf07c61a13c3c87681ef2168[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Sat Sep 26 16:21:07 2020 -0300
+
+    Correção na classe Recibo
+
+[33mcommit 57d93da227fe1e3db19aefe4633b762b0df78aa1[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Sat Sep 26 15:18:34 2020 -0300
+
+    Correção na classe Recibo
+
+[33mcommit df3c4917d0c76da70adfe99a57b8ad10d6ae8ab1[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Sat Sep 26 14:58:08 2020 -0300
+
+    Correção na classe Recibo
+
+[33mcommit 0f11265673dbf59c48918a4dcab1072556f551b7[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Sat Sep 26 14:55:09 2020 -0300
+
+    Criando Servico e Recibo - domain, repository, service e controller
+
+[33mcommit 32b01789dccabbffcf564cbf77457c50226811de[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Sat Sep 26 14:25:09 2020 -0300
+
+    corrigindo atributo da classe Cliente Service
+
+[33mcommit 5147c8d30f78ed74424955aa5674174dbbca81b5[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Sat Sep 26 14:03:37 2020 -0300
+
+    corrigindo atributo da classe Cliente
+
+[33mcommit 83fe59d3d756c92bec5fc48081d7ce09b97a16aa[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Sat Sep 26 13:46:17 2020 -0300
+
+    corrigindo atributo da classe Cliente
+
+[33mcommit 0e9421afe777fd4c924363422d55a532a8a9ff57[m
+Author: otomarques <otomarques@gmail.com>
+Date:   Sat Sep 26 13:41:24 2020 -0300
+
+    alterando classe  cliente
+
+[33mcommit 85b626d0a908bd86e2d4b9dda4b98ded31a01cce[m
+Author: otomarques <otomarques@gmail.com>
+Date:   Sat Sep 26 13:25:46 2020 -0300
+
+    criando cliente Controller
+
+[33mcommit d9e470a30ac038f3ced30d4c90781520623dcf73[m
+Merge: e41948b 81a45ca
+Author: otomarques <otomarques@gmail.com>
+Date:   Sat Sep 26 13:19:01 2020 -0300
+
+    Merge branch 'dev' of https://github.com/otomarques/despachante into dev
+
+[33mcommit e41948ba3fa523f24dbbee0e479cc2990b3f3651[m
+Author: otomarques <otomarques@gmail.com>
+Date:   Sat Sep 26 13:18:50 2020 -0300
+
+    criando cliente Rep e service
+
+[33mcommit 81a45ca361f0d76e4437a67b22f798dd68b1eb12[m
+Merge: bbdeee4 82643f1
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Sat Sep 26 13:14:59 2020 -0300
+
+    Merge branch 'dev' of https://github.com/otomarques/despachante into dev
+
+[33mcommit bbdeee4f2e2bfff9398ee2e225fc672bbfdda215[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Sat Sep 26 13:14:46 2020 -0300
+
+    Criando VeiculoService e VeiculoController
+
+[33mcommit 82643f1bbfcb3162cf0e7dbe747639d616b33a97[m
+Merge: bd7b852 7bcba2d
+Author: otomarques <otomarques@gmail.com>
+Date:   Sat Sep 26 12:47:18 2020 -0300
+
+    Merge branch 'dev' of https://github.com/otomarques/despachante into dev
+
+[33mcommit bd7b8522e71065bbb15051f53f7053ea282ed7a8[m
+Author: otomarques <otomarques@gmail.com>
+Date:   Sat Sep 26 12:46:39 2020 -0300
+
+    criando clinte dto
+
+[33mcommit 7bcba2de6640ff11e11e73696a27a88d40996ad9[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Sat Sep 26 12:35:59 2020 -0300
+
+    Criando VeiculoREpository
+
+[33mcommit cc2bfd4daa710e675798d45256a28d4cb34bc60e[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Sat Sep 26 12:33:42 2020 -0300
+
+    Criando classes de Modelo Veiculo e VeiculoDTO
+
+[33mcommit afa81c3733d7a0bcb71597b886077f61ec3ff3db[m
+Author: otomarques <otomarques@gmail.com>
+Date:   Sat Sep 26 12:22:40 2020 -0300
+
+    corrigindo erro2
+
+[33mcommit f13f093cf488cbf628fa4276d4c3a03834185fd1[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Sat Sep 26 12:06:28 2020 -0300
+
+    mapa mental
+
+[33mcommit 7993a1337298f318f41370b038b191cda066d256[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Sat Sep 19 23:15:40 2020 -0300
+
+    configurando swagger na api
+
+[33mcommit ed0eb21c434b2b3efbc2884e288fc9d69a385e28[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Sat Sep 19 23:07:46 2020 -0300
+
+    alterando tipo para ENUM
+
+[33mcommit ae6341c92a316a91e92569133078b231416568bc[m
+Author: otomarques <otomarques@gmail.com>
+Date:   Sat Sep 19 22:58:39 2020 -0300
+
+    classe cliente
+
+[33mcommit f5a350040087bd4a5a7c3091245a7d565b3b0acf[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Wed Sep 16 19:12:05 2020 -0300
+
+    populando classes UsuarioService e UsuarioController
+
+[33mcommit 4e30c5f3933bfdc360aa5411c1e64c3776a5a501[m
+Author: otomarques <otomarques@gmail.com>
+Date:   Wed Sep 16 19:08:11 2020 -0300
+
+    criando classes
+
+[33mcommit 6aaa2282cfe1f79f82d415e5cf70158b0bf9465d[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Wed Sep 16 18:28:31 2020 -0300
+
+    criando estrutura basica do projeto
+
+[33mcommit 2787b342b78d3427f1a36410906ccb1314d03834[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Wed Sep 16 18:27:59 2020 -0300
+
+    criando estrutura basica do projeto
+
+[33mcommit 47774c989b60c87f123c0ad59ba3645daef929b9[m
+Author: otomarques <otomarques@gmail.com>
+Date:   Wed Sep 16 18:24:29 2020 -0300
+
+    criando usuario
+
+[33mcommit 589c6219e0ef043abbea6f0431a9d070b7669d4f[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Wed Sep 16 18:01:24 2020 -0300
+
+    incluindo dependencias
+
+[33mcommit a0c75adc18e5cff05f3a7a72488e3e31a353983f[m[33m ([m[1;32mmaster[m[33m)[m
+Author: otomarques <otomarques@gmail.com>
+Date:   Wed Sep 16 17:50:39 2020 -0300
+
+    criação do projeto
+
+[33mcommit 1ca62743a8fcb06a184bf85a3ebc1c15525d91d2[m
+Author: pauroenriki <pauroenriki@gmail.com>
+Date:   Wed Sep 16 17:30:35 2020 -0300
+
+    trouxa
+
+[33mcommit b18446345028dc67bfde30a6f2094c887d534a25[m
+Author: otomarques <otomarques@gmail.com>
+Date:   Wed Sep 16 17:26:13 2020 -0300
+
+    commiti inicial
